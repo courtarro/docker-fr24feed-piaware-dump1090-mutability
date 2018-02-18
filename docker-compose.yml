@@ -1,29 +1,23 @@
-fr24feed-piaware:
-  restart: always
-  build: .
-  # expose
-  # 30001 - Raw output listen port
-  # 30002 - Feed Dump1090 input listen port
-  # 30003 - TCP BaseStation output listen port
-  # 30004 - TCP Beast input listen port
-  # 30005 - TCP Beast output listen port
-  # 8754 - DUMP1090 server port
-  # 8080 - HTTP server port
-  expose:
-    - "30001"
-    - "30002"
-    - "30003"
-    - "30004"
-    - "30005"
-    - "30104"
-    - "8754"
-    - "8080"
-  mac_address: ff:ff:ff:ff:ff:ff
-  devices:
-    - "/dev/bus/usb"
-  # ports
-  # 8754 - DUMP1090 server port
-  # 8080 - HTTP server port
-  ports:
-    - "8754:8754"
-    - "8080:8080"
+version: '3'
+
+services:
+  dump1090:
+    restart: always
+    build: .
+    image: dump1090
+    devices:
+      - /dev/bus/usb
+    tmpfs: /var/lib/dump1090/public_html/data     # uid=1000,gid=1000
+    expose:
+      - 8080    # HTTP server port
+      - 8754    # fr24 dashboard port
+      - 30001   # Raw output listen port
+      - 30002   # Feed Dump1090 input listen port
+      - 30003   # TCP BaseStation output listen port
+      - 30004   # TCP Beast input listen port
+      - 30005   # TCP Beast output listen port
+      - 30104
+    ports:
+      - "8080:8080"   # HTTP server port
+      - "8754:8754"   # fr24 dashboard port
+  
