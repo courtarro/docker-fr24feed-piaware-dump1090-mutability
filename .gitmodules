@@ -3,4 +3,4 @@
 	url = https://github.com/mutability/dump1090
 [submodule "rtl-sdr"]
 	path = rtl-sdr
-	url = git://git.osmocom.org/rtl-sdr.git
+	url = https://github.com/osmocom/rtl-sdr.git

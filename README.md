@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.org/Thom-x/docker-fr24feed-piaware-dump1090-mutability.svg?branch=master)](https://travis-ci.org/Thom-x/docker-fr24feed-piaware-dump1090-mutability)
-![](https://images.microbadger.com/badges/image/thomx/fr24feed-piaware.svg)
-![](https://images.microbadger.com/badges/version/thomx/fr24feed-piaware.svg)
-
 # Fr24feed and FlightAware with dump1090-mutability as a Docker image
 Docker image of Fr24feed, FlightAware and dump1090-mutability.
 
