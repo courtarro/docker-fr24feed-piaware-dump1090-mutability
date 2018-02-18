@@ -4,3 +4,6 @@
 [submodule "rtl-sdr"]
 	path = rtl-sdr
 	url = https://github.com/osmocom/rtl-sdr.git
+[submodule "piaware"]
+	path = piaware
+	url = https://github.com/flightaware/piaware_builder

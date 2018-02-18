@@ -4,5 +4,6 @@
 #
 # If /boot/piaware-config.txt also exists, then settings present in
 # that file will override settings in this file.
-flightaware-user YOUR_USERNAME
-flightaware-password YOUR_PASSWORD
+flightaware-user USERNAME
+flightaware-password PASS
+#feeder-id 55555555-aaaa-bbbb-cccc-777777777777

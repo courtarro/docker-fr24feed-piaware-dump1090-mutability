@@ -26,17 +26,17 @@ ShowOtherUnits = true;
 // degrees.
 
 // Default center of the map.
-DefaultCenterLat = 47;
-DefaultCenterLon = 2.5;
+DefaultCenterLat =  33.000000;
+DefaultCenterLon = -84.000000;
 // The google maps zoom level, 0 - 16, lower is further out
-DefaultZoomLvl   = 7;
+DefaultZoomLvl   = 8;
 
 // Center marker. If dump1090 provides a receiver location,
 // that location is used and these settings are ignored.
 
 SiteShow    = true;           // true to show a center marker
-SiteLat     = 47;            // position of the marker
-SiteLon     = 2.5;
+SiteLat     =  33.000000;            // position of the marker
+SiteLon     = -84.000000;
 SiteName    = "Home"; // tooltip of the marker
 
 // -- Marker settings -------------------------------------

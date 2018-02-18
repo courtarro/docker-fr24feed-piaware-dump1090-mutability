@@ -1,4 +1,4 @@
-fr24key=""
+fr24key="YOUR_KEY_HERE"
 receiver="beast-tcp"
 host="127.0.0.1:30005"
 logmode="0"
