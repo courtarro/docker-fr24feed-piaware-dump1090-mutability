@@ -4,8 +4,8 @@ ARG FR24_VER=1.0.18-5
 
 # APT Packages
 RUN apt-get update &&\
-    apt-get install -y --no-install-recommends wget libusb-1.0-0-dev pkg-config ca-certificates cmake build-essential supervisor &&\
-	apt-get install -y --no-install-recommends git build-essential debhelper tcl8.6-dev autoconf python3-dev python-virtualenv libz-dev net-tools tclx8.4 tcllib tcl-tls itcl3 python3-venv dh-systemd init-system-helpers &&\
+    apt-get install -y --no-install-recommends wget libusb-1.0-0-dev pkg-config ca-certificates cmake build-essential supervisor && \
+	apt-get install -y --no-install-recommends git build-essential debhelper tcl8.6-dev autoconf python3-dev python-virtualenv libz-dev net-tools tclx8.4 tcllib tcl-tls itcl3 python3-venv dh-systemd devscripts init-system-helpers &&\
     apt-get clean &&\
     rm -rf /var/lib/apt/lists/*
 
