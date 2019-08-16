@@ -19,6 +19,6 @@ services:
       - 30005   # TCP Beast output listen port
       - 30104
     ports:
-      - "30001-30005:30001-30005"    # data ports
-      - "8753:8080"   # HTTP server port
-      - "8754:8754"   # fr24 dashboard port
+      - "127.0.0.1:30001-30005:30001-30005"    # data ports
+      - "127.0.0.1:8753:8080"   # HTTP server port
+      - "127.0.0.1:8754:8754"   # fr24 dashboard port
