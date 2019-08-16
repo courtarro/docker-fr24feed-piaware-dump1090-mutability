@@ -7,26 +7,16 @@ ARG GID=1000
 # APT Packages
 RUN apt-get update &&\
     apt-get install -y --no-install-recommends wget libusb-1.0-0-dev pkg-config ca-certificates cmake build-essential supervisor && \
-    apt-get install -y --no-install-recommends git build-essential debhelper tcl8.6-dev autoconf python3-dev python-virtualenv libz-dev net-tools tclx8.4 tcllib tcl-tls itcl3 python3-venv dh-systemd devscripts init-system-helpers &&\
+    apt-get install -y --no-install-recommends git build-essential debhelper librtlsdr-dev libncurses5-dev tcl8.6-dev autoconf python3-dev python-virtualenv libz-dev net-tools tclx8.4 tcllib tcl-tls itcl3 python3-venv dh-systemd devscripts init-system-helpers &&\
     apt-get clean &&\
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /docker
 
-# Set up RTL-SDR
-ADD rtl-sdr /docker/rtl-sdr
-WORKDIR /docker/rtl-sdr
-RUN mkdir build &&\
-    cd build &&\
-    cmake ../ -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON &&\
-    make &&\
-    make install &&\
-    ldconfig
-
 # dump1090
 ADD dump1090 /docker/dump1090
 WORKDIR /docker/dump1090
-RUN DUMP1090_VERSION='localver' make &&\
+RUN DUMP1090_VERSION='localver' make -j4 BLADERF=no &&\
     cp dump1090 /usr/local/bin/ &&\
     mkdir -p /var/lib/dump1090 &&\
     cp -r public_html /var/lib/dump1090/public_html/
