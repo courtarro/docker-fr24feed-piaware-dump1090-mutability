@@ -1,9 +1,6 @@
 [submodule "dump1090"]
 	path = dump1090
-	url = https://github.com/flightaware/dump1090
-[submodule "rtl-sdr"]
-	path = rtl-sdr
-	url = https://github.com/osmocom/rtl-sdr.git
+	url = https://github.com/courtarro/dump1090
 [submodule "piaware"]
 	path = piaware
 	url = https://github.com/flightaware/piaware_builder
