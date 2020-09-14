@@ -1,8 +1,10 @@
 FROM debian:stretch
 
-ARG FR24_VER=1.0.24-5
+ARG FR24_VER=1.0.23-8
 ARG UID=1000
 ARG GID=1000
+
+RUN dpkg --add-architecture armhf
 
 # APT Packages
 RUN apt-get update &&\
@@ -23,9 +25,12 @@ RUN DUMP1090_VERSION='localver' make -j4 BLADERF=no &&\
 
 # FlightRadar24
 WORKDIR /docker
-RUN wget https://repo-feed.flightradar24.com/linux_x86_64_binaries/fr24feed_${FR24_VER}_amd64.tgz &&\
-    tar zxf fr24feed_${FR24_VER}_amd64.tgz &&\
-    cp fr24feed_amd64/fr24feed /usr/local/bin
+RUN wget -O fr24feed_${FR24_VER}_armhf.deb http://repo-feed.flightradar24.com/rpi_binaries/fr24feed_${FR24_VER}_armhf.deb &&\
+    apt-get update &&\
+    apt-get install -y libc6:armhf libstdc++6:armhf libusb-1.0-0:armhf &&\
+    apt-get install ./fr24feed_${FR24_VER}_armhf.deb; exit 0 &&\
+    apt-get clean &&\
+    rm -rf /var/lib/apt/lists/*
 
 # FlightAware
 COPY piaware /docker/piaware
